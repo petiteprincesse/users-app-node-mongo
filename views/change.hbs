@@ -1,0 +1,28 @@
+<div id="change" class="col s6 offset-s3">
+  {{#if changeError}}
+  <p class="alert">{{changeError}}</p>
+  {{/if}}
+  <h1>Сменить пароль</h1>
+  <form action="/change" method="POST">
+
+    <div class="input-field">
+      <input id="old-password" name="opassword" type="password" class="validate" required>
+      <label for="old-password">Старый пароль</label>
+      <span class="helper-text" data-error="Введите старый пароль"></span>
+    </div>
+
+    <div class="input-field">
+      <input id="password" name="password" type="password" class="validate" required>
+      <label for="password">Пароль</label>
+      <span class="helper-text" data-error="Введите пароль"></span>
+    </div>
+
+    <div class="input-field">
+      <input id="confirm" name="confirm" type="password" class="validate" required>
+      <label for="confirm">Пароль еще раз</label>
+      <span class="helper-text" data-error="Повторите пароль"></span>
+    </div>
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+    <button class="btn btn-primary" type="submit">Сменить</button>
+  </form>
+</div>

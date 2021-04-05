@@ -1,0 +1,50 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo" title="ИДБ-17-06 Максимова Ольга 8 вариант">Auth App</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+      {{#if isAuth}}
+
+      {{#if isHome}}
+      <li class="active"><a href="/">Главная</a></li>
+      {{else}}
+      <li><a href="/">Главная</a></li>
+      {{/if}}
+
+      {{#if isChange}}
+      <li class="active"><a href="/">Сменить пароль</a></li>
+      {{else}}
+      <li><a href="/change">Сменить пароль</a></li>
+      {{/if}}
+
+      {{#if isAdmin}}
+
+      {{#if isUsers}}
+      <li class="active"><a href="/users">Пользователи</a></li>
+      {{else}}
+      <li><a href="/users">Пользователи</a></li>
+      {{/if}}
+
+      {{#if isAdd}}
+      <li class="active"><a href="/add">Добавить пользователя</a></li>
+      {{else}}
+      <li><a href="/add">Добавить пользователя</a></li>
+      {{/if}}
+
+      {{/if}}
+
+      <li><a href="/auth/logout">Выйти</a></li>
+
+      {{else}}
+
+      {{#if isLogin}}
+      <li class="active"><a href="/auth/login#login">Войти</a></li>
+      {{else}}
+      <li><a href="/auth/login#login">Войти</a></li>
+      {{/if}}
+      
+      {{/if}}
+
+    </ul>
+  </div>
+</nav>

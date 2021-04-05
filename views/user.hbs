@@ -1,0 +1,40 @@
+<div class="user">
+  <h1>{{user.name}}</h1>
+
+  <img src="{{user.img}}" alt="{{user.name}}">
+
+  <p class="login-big"><strong>*{{user.login}}*</strong></p>
+
+  <div class="check-block">
+    <p>
+      <label class="check-label">
+        {{#if user.admin}}
+        <input type="checkbox" name="admin" checked="checked" disabled="disabled"/>
+        {{else}}
+        <input type="checkbox" name="admin" disabled="disabled"/>
+        {{/if}}
+        <span>Администратор</span>
+      </label>
+    </p>
+    <p>
+      <label class="check-label">
+        {{#if user.limit}}
+        <input type="checkbox" name="limit" checked="checked" disabled="disabled"/>
+        {{else}}
+        <input type="checkbox" name="limit" disabled="disabled"/>
+        {{/if}}
+        <span>Ограничения</span>
+      </label>
+    </p>
+    <p>
+      <label class="check-label">
+        {{#if user.block}}
+        <input type="checkbox" name="block" checked="checked" disabled="disabled"/>
+        {{else}}
+        <input type="checkbox" name="block" disabled="disabled"/>
+        {{/if}}
+        <span>Бан</span>
+      </label>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<h1>Редактировать {{user.name}}</h1>
+
+<form action="/users/edit" method="POST">
+  <div class="input-field col s6">
+    <input id="name" name="name" type="text" class="validate name-input" required value="{{user.name}}">
+    <label for="name">ФИО через пробел</label>
+    <span class="helper-text name-helper" data-error="Введите ФИО"></span>
+    <span class="error"></span>
+  </div>
+  <div class="input-field col s6">
+    <input id="login" name="login" type="text" class="validate" required value="{{user.login}}">
+    <label for="login">Логин</label>
+    <span class="helper-text" data-error="Введите логин"></span>
+  </div>
+  <div class="input-field col s6">
+    <input id="img" name="img" type="text" class="validate" required value="{{user.img}}">
+    <label for="img">Фото профиля</label>
+    <span class="helper-text" data-error="Введите url"></span>
+  </div>
+  <div class="check-block">
+    <p>
+      <label class="check-label">
+        {{#if user.admin}}
+        <input type="checkbox" name="admin" checked="checked" />
+        {{else}}
+        <input type="checkbox" name="admin" />
+        {{/if}}
+        <span>Администратор</span>
+      </label>
+    </p>
+    <p>
+      <label class="check-label">
+        {{#if user.limit}}
+        <input type="checkbox" name="limit" checked="checked" />
+        {{else}}
+        <input type="checkbox" name="limit" />
+        {{/if}}
+        <span>Ограничения</span>
+      </label>
+    </p>
+    <p>
+      <label class="check-label">
+        {{#if user.block}}
+        <input type="checkbox" name="block" checked="checked" />
+        {{else}}
+        <input type="checkbox" name="block" />
+        {{/if}}
+        <span>Бан</span>
+      </label>
+    </p>
+    <input type="hidden" name="id" value="{{user.id}}">
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+    <button class="btn btn-primary">Редактировать пользователя</button>
+  </div>
+
+</form>
+
+<form action="/users/remove" method="POST">
+  <input type="hidden" name="id" value="{{ user.id }}">
+  <input type="hidden" name="_csrf" value="{{csrf}}">
+  <button class="btn red">Удалить</button>
+</form>

@@ -1,0 +1,45 @@
+<h1>Добавить нового пользователя</h1>
+{{#if registrationError}}
+<p class="alert">{{registrationError}}</p>
+{{/if}}
+<form action="/add" method="POST">
+  <div class="input-field col s6">
+    <input id="name" name="name" type="text" class="validate name-input" required>
+    <label for="name">ФИО через пробел</label>
+    <span class="helper-text name-helper" data-error="Введите ФИО"></span>
+    <span class="error"></span>
+  </div>
+  <div class="input-field col s6">
+    <input id="login" name="login" type="text" class="validate" required>
+    <label for="login">Логин</label>
+    <span class="helper-text" data-error="Введите логин"></span>
+  </div>
+  <div class="input-field col s6">
+    <input id="img" name="img" type="text" class="validate" required>
+    <label for="img">Фото профиля</label>
+    <span class="helper-text" data-error="Введите url"></span>
+  </div>
+  <div class="check-block">
+    <p>
+      <label>
+        <input type="checkbox" name="admin" />
+        <span>Администратор</span>
+      </label>
+    </p>
+    <p>
+      <label>
+        <input type="checkbox" name="limit" />
+        <span>Ограничения</span>
+      </label>
+    </p>
+    <p>
+      <label>
+        <input type="checkbox" name="block" />
+        <span>Бан</span>
+      </label>
+    </p>
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+    <button class="btn btn-primary">Добавить пользователя</button>
+  </div>
+
+</form>
